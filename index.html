@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Russell Jazdan - Cloud student portfolio featuring Microsoft Azure, Windows Server, Linux, networking, and cloud infrastructure projects.">
+  <title>Russell Jazdan | Cloud Student</title>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --bg-alt: #111827;
+      --card: #172033;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --border: #263449;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #7dd3fc;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 17, 32, 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-content {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    header {
+      min-height: 72vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.12), transparent 30%),
+        var(--bg);
+    }
+
+    .hero {
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .legal-name {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 680px;
+      font-size: 1.08rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 7px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: #07111f;
+    }
+
+    .button-primary:hover {
+      background: #7dd3fc;
+      color: #07111f;
+    }
+
+    .button-secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--bg-alt);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 35px;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 55px;
+      height: 3px;
+      background: var(--accent);
+      margin-top: 10px;
+    }
+
+    .about-text {
+      max-width: 850px;
+      color: var(--muted);
+    }
+
+    .about-text p + p {
+      margin-top: 18px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .skill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 10px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-dark);
+    }
+
+    .card h3 {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .education-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .education-item {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .education-item h3 {
+      color: white;
+    }
+
+    .education-item p {
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 700px) {
+      .nav-content {
+        flex-direction: column;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 18px;
+      }
+
+      header {
+        min-height: auto;
+        padding: 90px 0 70px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-content">
+      <a class="logo" href="#home">Russell Jazdan</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="container">
+      <div class="hero">
+        <p class="eyebrow">Cloud Portfolio</p>
+        <h1>Russell Jazdan</h1>
+        <p class="legal-name">Rasool Yazdanshenas</p>
+        <h2>Cloud Student</h2>
+        <p>
+          Building practical skills in cloud computing, IT infrastructure,
+          networking, Linux, Windows Server, and Microsoft Azure through
+          hands-on learning and projects.
+        </p>
+
+        <div class="buttons">
+          <a class="button button-primary" href="#projects">View My Projects</a>
+          <a class="button button-secondary" href="https://github.com/Russjaz" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/russell-jazdan-7ab346143/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+          <p>
+            I am a Cloud Foundations student with a great interest in cloud
+            technologies, IT infrastructure, and continuous learning. My
+            experience working in different fields has helped me develop
+            valuable skills such as problem-solving, communication,
+            adaptability, and teamwork.
+          </p>
+          <p>
+            I enjoy new challenges and expanding my technical knowledge through
+            hands-on projects. I am currently building my skills in cloud
+            computing, networking, Linux, Windows Server, and Microsoft Azure,
+            with the goal of starting and growing my career in the IT and cloud
+            industry.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill">Microsoft Azure</div>
+          <div class="skill">Windows Server</div>
+          <div class="skill">Active Directory</div>
+          <div class="skill">DNS / DHCP</div>
+          <div class="skill">Networking</div>
+          <div class="skill">Linux</div>
+          <div class="skill">PowerShell</div>
+          <div class="skill">Bash</div>
+          <div class="skill">Git / GitHub</div>
+          <div class="skill">Virtualization / VMware</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education & Certifications</h2>
+
+        <div class="education-list">
+          <div class="education-item">
+            <h3>Cloud Foundations – Noroff</h3>
+            <p>In progress</p>
+          </div>
+
+          <div class="education-item">
+            <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+            <p>Completed</p>
+          </div>
+
+          <div class="education-item">
+            <h3>Microsoft Azure Administrator (AZ-104)</h3>
+            <p>Planned</p>
+          </div>
+
+          <div class="education-item">
+            <h3>English Literature</h3>
+            <p>Degree</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>01. Azure Static Website</h3>
+            <p>
+              A static portfolio website created and deployed using Microsoft
+              Azure, demonstrating cloud hosting and deployment skills.
+            </p>
+            <span class="status">Portfolio Project</span>
+          </article>
+
+          <article class="card">
+            <h3>02. Enterprise On-Prem Infrastructure</h3>
+            <p>
+              A hands-on enterprise infrastructure project using Windows Server,
+              Active Directory, DNS, DHCP, Group Policy, and related services.
+            </p>
+            <span class="status">Infrastructure</span>
+          </article>
+
+          <article class="card">
+            <h3>03. Cloud Migration</h3>
+            <p>
+              A project focused on planning and implementing the migration of
+              traditional infrastructure and services to a cloud environment.
+            </p>
+            <span class="status">Cloud</span>
+          </article>
+
+          <article class="card">
+            <h3>04. Infrastructure as Code with Bicep</h3>
+            <p>
+              Deploying and managing Azure infrastructure using Bicep templates
+              to demonstrate repeatable Infrastructure as Code practices.
+            </p>
+            <span class="status">IaC</span>
+          </article>
+
+          <article class="card">
+            <h3>05. DNS Incident Response</h3>
+            <p>
+              A troubleshooting-focused project investigating DNS-related
+              incidents, identifying root causes, and documenting the resolution.
+            </p>
+            <span class="status">Troubleshooting</span>
+          </article>
+
+          <article class="card">
+            <h3>06. Linux + Docker Deployment</h3>
+            <p>
+              Deploying an application or service in a Linux environment using
+              Docker while documenting configuration and deployment steps.
+            </p>
+            <span class="status">Linux / Containers</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Connect With Me</h2>
+        <p style="color: var(--muted); margin-bottom: 25px;">
+          You can find my projects and follow my professional development through
+          GitHub and LinkedIn.
+        </p>
+
+        <div class="contact-links">
+          <a class="button button-primary" href="https://github.com/Russjaz" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          <a class="button button-secondary" href="https://www.linkedin.com/in/russell-jazdan-7ab346143/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Russell Jazdan. Built as part of my cloud portfolio.</p>
+  </footer>
+</body>
+</html>
